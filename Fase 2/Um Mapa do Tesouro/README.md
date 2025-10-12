@@ -90,4 +90,3 @@ O sistema monitora continuamente os sensores e toma decisões automáticas sobre
 ---
 
 **Desenvolvido por:** Diego Filipe Pereira de Araujo
-**RM:**
