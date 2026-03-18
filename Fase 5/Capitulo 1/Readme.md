@@ -35,8 +35,8 @@ O desenvolvimento completo da solução está no notebook:
 
 ## Vídeos de demonstração
 
-- **Entrega 1:** *(Inserir aqui o link do vídeo de até 5 minutos no YouTube — modo “não listado” — demonstrando o funcionamento do notebook e da solução de ML.)*
-- **Entrega 2:** *(Inserir aqui o link do vídeo de até 5 minutos com a comparação de recursos na calculadora AWS.)*
+- **Entrega 1:** [Vídeo — EDA, notebook e solução de ML](https://youtu.be/WRL_nfjpBZo)
+- **Entrega 2:** [Vídeo — comparação de custos na calculadora AWS](https://youtu.be/9L8GuhoJf-Y)
 
 ---
 
@@ -92,7 +92,7 @@ Suponha que você precise **acessar rapidamente** os dados dos sensores e que ex
 
 - **Conclusão:** Mesmo que a região da Virgínia do Norte apresente custo menor na calculadora, para um cenário com necessidade de acesso rápido aos dados dos sensores e restrições legais para armazenamento no exterior, a **região de São Paulo (sa-east-1)** é a opção que atende aos requisitos de desempenho e conformidade.
 
-**Vídeo Entrega 2:** *(Inserir aqui o link do vídeo de até 5 minutos com a comparação de recursos na calculadora AWS.)*
+**Vídeo Entrega 2:** [Vídeo — comparação de custos na calculadora AWS](https://youtu.be/9L8GuhoJf-Y)
 
 ### Documentação AWS
 
