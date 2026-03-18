@@ -29,7 +29,7 @@ Todo o passo a passo, resultados e conclusões estão no **notebook Jupyter** in
 
 O desenvolvimento completo da solução está no notebook:
 
-- **Arquivo:** [src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase4.ipynb](src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase4.ipynb)
+- **Arquivo:** [src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase5.ipynb](src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase5.ipynb)
 
 ---
 
@@ -140,7 +140,7 @@ Ou instale manualmente: `pandas`, `numpy`, `matplotlib`, `seaborn`, `scikit-lear
 
 1. Clone o repositório (ou baixe os arquivos).
 2. O dataset `crop_yield.csv` está em `assets/`; o notebook já referencia `../assets/crop_yield.csv`.
-3. Abra o notebook em `src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase4.ipynb` no Jupyter e execute as células em ordem (Run All).
+3. Abra o notebook em `src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase5.ipynb` no Jupyter e execute as células em ordem (Run All).
 
 ---
 

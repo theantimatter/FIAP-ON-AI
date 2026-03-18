@@ -14,4 +14,4 @@ Você e o seu grupo estão na FarmTech Solutions prestando serviços de IA para 
 
 **Metas:** Análise exploratória; clusterização para tendências e outliers; cinco modelos preditivos (algoritmos diferentes) com boas práticas e métricas pertinentes.
 
-**Entregáveis:** Novo repositório GitHub; notebook Jupyter (nome: NomeCompleto_rmXXXXX_pbl_fase4.ipynb) com código comentado e markdown; vídeo até 5 min (YouTube não listado); README introdutório com link do notebook e do vídeo.
+**Entregáveis:** Novo repositório GitHub; notebook Jupyter (nome: NomeCompleto_rmXXXXX_pbl_fase5.ipynb) com código comentado e markdown; vídeo até 5 min (YouTube não listado); README introdutório com link do notebook e do vídeo.
