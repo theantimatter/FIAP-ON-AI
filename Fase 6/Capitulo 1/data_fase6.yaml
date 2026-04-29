@@ -1,0 +1,7 @@
+# Relativo à raiz do Capítulo 1; o notebook da E1 pode sobrescrever este arquivo.
+train: assets/dataset_yolo_farmtech/train/images
+val: assets/dataset_yolo_farmtech/valid/images
+test: assets/dataset_yolo_farmtech/test/images
+
+nc: 2
+names: ['objeto_a', 'objeto_b']

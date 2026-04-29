@@ -1,0 +1,11 @@
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+venv/
+.venv/
+
+# Clone do YOLOv5 criado ao rodar os notebooks localmente
+yolov5/
+
+assets/

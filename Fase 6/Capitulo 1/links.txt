@@ -1,0 +1,31 @@
+FarmTech Solutions — Fase 6 / Capítulo 1
+Links rápidos (GitHub + Google Colab + YouTube)
+
+=== GitHub ===
+
+Repositório (raiz):
+https://github.com/masterjapa/FIAP-ON-AI
+
+Pasta deste capítulo:
+https://github.com/masterjapa/FIAP-ON-AI/tree/main/Fase%206/Capitulo%201
+
+Notebook Entrega 1:
+https://github.com/masterjapa/FIAP-ON-AI/blob/main/Fase%206/Capitulo%201/src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase6.ipynb
+
+Notebook Entrega 2:
+https://github.com/masterjapa/FIAP-ON-AI/blob/main/Fase%206/Capitulo%201/src/DiegoFilipePereiradeAraujo_rm567064_pbl_fase6_entrega2.ipynb
+
+=== Google Colab ===
+
+Entrega 1:
+https://colab.research.google.com/drive/10TWiqWN55SFTNgBIh50atKXMN3rVP3Gw?usp=sharing
+
+Entrega 2:
+https://colab.research.google.com/drive/1lFFpfhOYb88yqfQx30W2wETNjt9kpI7R?usp=sharing
+
+Google Drive (visualizar arquivo .ipynb — Entrega 2):
+https://drive.google.com/file/d/1lFFpfhOYb88yqfQx30W2wETNjt9kpI7R/view?usp=sharing
+
+=== YouTube (vídeo não listado) ===
+
+https://youtu.be/lEjT5GtKMig
