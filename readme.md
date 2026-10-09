@@ -14,7 +14,8 @@ O **CardioIA** é o projeto PBL deste ano: uma plataforma digital que simula o e
 | Fase | Tema | Entrega |
 |---|---|---|
 | **1** | **Batimentos de Dados** — levantamento e curadoria das bases numérica, textual e visual | [`Fase_01/`](Fase_01/) |
-| 2 – 7 | — | a definir |
+| **2** | **Diagnóstico Assistido por IA** — extração de sintomas com mapa de conhecimento e classificador de risco com TF-IDF | [`Fase_02/`](Fase_02/) |
+| 3 – 7 | — | a definir |
 
 ## Projeto anterior
 

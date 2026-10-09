@@ -1,0 +1,41 @@
+sintoma_1,sintoma_2,doenca_associada
+aperto no tórax,peso no peito,Angina estável
+subo as escadas,piora com esforço físico,Angina estável
+minutos de repouso,melhora com o repouso,Angina estável
+falta de ar ao esforço,cansaço ao caminhar rápido,Angina estável
+dor no peito,dor forte no peito,Infarto agudo do miocárdio
+irradia para o braço esquerdo,dor no braço esquerdo,Infarto agudo do miocárdio
+suor frio,sudorese intensa,Infarto agudo do miocárdio
+náusea com dor no peito,mal-estar súbito,Infarto agudo do miocárdio
+dor no peito que não passa,dor no peito em repouso,Infarto agudo do miocárdio
+cansaço constante,fadiga,Insuficiência cardíaca
+mesmo depois de descansar,cansaço ao mínimo esforço,Insuficiência cardíaca
+não consigo terminar a caminhada,cansaço para atividades simples,Insuficiência cardíaca
+pernas inchadas,inchaço nos tornozelos,Insuficiência cardíaca
+falta de ar quando me deito,dormir sentado,Insuficiência cardíaca
+falta de ar,dificuldade para respirar,Insuficiência cardíaca
+ganho de peso rápido,barriga inchada,Insuficiência cardíaca
+coração acelerado,taquicardia,Arritmia cardíaca
+palpitações,batimentos irregulares,Arritmia cardíaca
+coração falhando,pulso irregular,Arritmia cardíaca
+tontura com palpitação,sensação de desmaio,Arritmia cardíaca
+dor de cabeça forte,dor na nuca,Hipertensão arterial
+nuca pesada,peso na nuca,Hipertensão arterial
+visão turva,zumbido no ouvido,Hipertensão arterial
+sangramento pelo nariz,pressão alta medida em casa,Hipertensão arterial
+dor no peito que piora ao respirar,dor em pontada no tórax,Pericardite
+inclino para frente,melhora sentado e curvado,Pericardite
+febre com dor no peito,dor no peito depois de uma gripe,Pericardite
+dor na perna ao caminhar,câimbra na panturrilha ao andar,Doença arterial periférica
+esperar a dor passar,preciso parar de andar,Doença arterial periférica
+pés frios,ferida que não cicatriza no pé,Doença arterial periférica
+perna inchada e dolorida,panturrilha endurecida,Trombose venosa profunda
+quente e vermelha,veia saltada na perna,Trombose venosa profunda
+inchaço em uma só perna,dor ao apertar a panturrilha,Trombose venosa profunda
+sopro no coração,sopro cardíaco,Estenose aórtica
+desmaio ao esforço,quase desmaiei,Estenose aórtica
+tontura ao subir escada,escurecimento da visão ao esforço,Estenose aórtica
+dor no peito depois de uma virose,cansaço depois de uma infecção,Miocardite
+fala arrastada,fraqueza em um lado do corpo,Acidente vascular cerebral
+boca torta,perda de força no braço,Acidente vascular cerebral
+formigamento nas mãos,respiração curta com aflição,Transtorno de ansiedade

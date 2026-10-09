@@ -1,0 +1,11 @@
+paciente,relato,sintomas_identificados,diagnostico_sugerido,expressoes_de_apoio
+P01,Há dois dias sinto um aperto no tórax que aparece quando subo as escadas de casa e melhora depois de alguns minutos de repouso.,minutos de repouso; aperto no tórax; subo as escadas,Angina estável,3
+P02,"Desde ontem à noite tenho uma dor no peito que irradia para o braço esquerdo, acompanhada de suor frio, e não consegui dormir direito.",irradia para o braço esquerdo; dor no peito; suor frio,Infarto agudo do miocárdio,3
+P03,"Sinto cansaço constante há uma semana, mesmo depois de descansar, e já não consigo terminar a caminhada até o mercado.",não consigo terminar a caminhada; mesmo depois de descansar; cansaço constante,Insuficiência cardíaca,3
+P04,Faz uns quinze dias que acordo com as pernas inchadas e preciso dormir sentado porque sinto falta de ar quando me deito.,falta de ar quando me deito; pernas inchadas; dormir sentado,Insuficiência cardíaca,3
+P05,Nos últimos três dias meu coração acelerado me acorda de madrugada e sinto palpitações mesmo parado no sofá.,coração acelerado; palpitações,Arritmia cardíaca,2
+P06,"Há uma semana tenho dor de cabeça forte no fim da tarde e a nuca pesada, e minha visão turva quando levanto rápido da cadeira.",dor de cabeça forte; nuca pesada; visão turva,Hipertensão arterial,3
+P07,Comecei a sentir no fim de semana uma dor no peito que piora ao respirar fundo e que melhora quando me inclino para frente.,dor no peito que piora ao respirar; inclino para frente,Pericardite,2
+P08,"Há cerca de um mês sinto dor na perna ao caminhar duas quadras, preciso parar e esperar a dor passar antes de seguir até o trabalho.",dor na perna ao caminhar; esperar a dor passar,Doença arterial periférica,2
+P09,"Desde anteontem minha panturrilha direita está quente e vermelha, com a perna inchada e dolorida, e mal consigo calçar o sapato.",perna inchada e dolorida; quente e vermelha,Trombose venosa profunda,2
+P10,Na semana passada tive dois episódios de tontura ao subir escada e quase desmaiei no trabalho; o médico já havia comentado que eu tenho um sopro no coração.,tontura ao subir escada; sopro no coração; quase desmaiei,Estenose aórtica,3

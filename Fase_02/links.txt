@@ -1,0 +1,34 @@
+CardioIA — Fase 2: Diagnóstico Assistido por IA
+Diego Filipe Pereira de Araujo — RM567064
+Links de entrega
+
+=== GitHub ===
+
+Repositório (raiz):
+https://github.com/theantimatter/FIAP-ON-AI
+
+Pasta desta fase:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_02
+
+README da entrega (documento resumo):
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_02/README.md
+
+Parte 1 — relatos, mapa de conhecimento e script de extração:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_02/dados
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_02/scripts/extrair_sintomas.py
+
+Parte 2 — notebook do classificador de risco:
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_02/notebooks/parte2_classificador_risco.ipynb
+
+=== YouTube ===
+
+Vídeo de demonstração (não listado):
+https://youtu.be/T61K493zCE0
+
+Arquivo local da gravação (não versionado):
+Fase_02/video/cardioia_fase2_demo.mov
+
+=== Fase anterior ===
+
+Fase 1 — Batimentos de Dados:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_01

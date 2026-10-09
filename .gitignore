@@ -8,3 +8,6 @@ __pycache__/
 
 # Amostra de imagens gerada localmente (vai para o Google Drive, nao para o repo)
 Fase_01/imagens_ecg/
+
+# Gravacao da demo da Fase 2 (vai para o YouTube, nao para o repo)
+Fase_02/video/
