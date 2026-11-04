@@ -1,0 +1,400 @@
+[
+  {
+    "id": "aba_cardioia",
+    "type": "tab",
+    "label": "CardioIA - Fase 3",
+    "disabled": false,
+    "info": "Recebe as leituras do wearable (ESP32) via MQTT e monta o dashboard de monitoramento."
+  },
+  {
+    "id": "broker_hivemq",
+    "type": "mqtt-broker",
+    "name": "HiveMQ",
+    "broker": "broker.hivemq.com",
+    "port": "1883",
+    "clientid": "",
+    "autoConnect": true,
+    "usetls": false,
+    "protocolVersion": "4",
+    "keepalive": "60",
+    "cleansession": true,
+    "autoUnsubscribe": true,
+    "birthTopic": "",
+    "birthQos": "0",
+    "birthPayload": "",
+    "closeTopic": "",
+    "closeQos": "0",
+    "closePayload": "",
+    "willTopic": "",
+    "willQos": "0",
+    "willPayload": ""
+  },
+  {
+    "id": "ui_aba",
+    "type": "ui_tab",
+    "name": "CardioIA",
+    "icon": "favorite",
+    "order": 1,
+    "disabled": false,
+    "hidden": false
+  },
+  {
+    "id": "grp_monitor",
+    "type": "ui_group",
+    "name": "Paciente 01 - Sinais vitais",
+    "tab": "ui_aba",
+    "order": 1,
+    "disp": true,
+    "width": "12",
+    "collapse": false
+  },
+  {
+    "id": "grp_alerta",
+    "type": "ui_group",
+    "name": "Alertas",
+    "tab": "ui_aba",
+    "order": 2,
+    "disp": true,
+    "width": "6",
+    "collapse": false
+  },
+  {
+    "id": "ui_base_cardioia",
+    "type": "ui_base",
+    "theme": {
+      "name": "theme-light"
+    },
+    "site": {
+      "name": "CardioIA - Monitoramento",
+      "hideToolbar": "false",
+      "allowSwipe": "false",
+      "lockMenu": "false",
+      "allowTempTheme": "true",
+      "dateFormat": "DD/MM/YYYY",
+      "sizes": {
+        "sx": 48,
+        "sy": 48,
+        "gx": 6,
+        "gy": 6,
+        "cx": 6,
+        "cy": 6,
+        "px": 0,
+        "py": 0
+      }
+    }
+  },
+  {
+    "id": "mqtt_sinais",
+    "type": "mqtt in",
+    "z": "aba_cardioia",
+    "name": "sinais",
+    "topic": "cardioia/rm567064/paciente01/sinais",
+    "qos": "0",
+    "datatype": "json",
+    "broker": "broker_hivemq",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 110,
+    "y": 160,
+    "wires": [
+      [
+        "avaliar",
+        "debug_sinais"
+      ]
+    ]
+  },
+  {
+    "id": "debug_sinais",
+    "type": "debug",
+    "z": "aba_cardioia",
+    "name": "leituras recebidas",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "payload",
+    "targetType": "msg",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 330,
+    "y": 80,
+    "wires": []
+  },
+  {
+    "id": "avaliar",
+    "type": "function",
+    "z": "aba_cardioia",
+    "name": "Avaliar leitura",
+    "func": "// Mesmos limites usados no firmware\nconst TEMP_FEBRE = 38.0;\nconst TEMP_HIPOTERMIA = 35.0;\nconst BPM_TAQUICARDIA = 120;\nconst BPM_BRADICARDIA = 50;\n\nconst d = msg.payload;\nif (typeof d !== 'object' || d.bpm === undefined || d.temp === undefined) {\n    node.warn('mensagem fora do formato esperado');\n    return null;\n}\n\n// leituras do buffer chegam com o horário em que foram coletadas\nconst instante = d.ts > 0 ? d.ts * 1000 : Date.now();\n\nconst alertas = [];\nif (d.bpm > BPM_TAQUICARDIA) alertas.push('Taquicardia (' + d.bpm + ' bpm)');\nif (d.bpm > 0 && d.bpm < BPM_BRADICARDIA) alertas.push('Bradicardia (' + d.bpm + ' bpm)');\nif (d.temp >= TEMP_FEBRE) alertas.push('Febre (' + d.temp + ' °C)');\nif (d.temp < TEMP_HIPOTERMIA) alertas.push('Temperatura baixa (' + d.temp + ' °C)');\n\nlet status;\nif (alertas.length > 0) {\n    status = { payload: 'ALERTA: ' + alertas.join(' | '), cor: '#e53935' };\n} else if (d.bpm === 0) {\n    status = { payload: 'Sem leitura de pulso', cor: '#fbc02d' };\n} else {\n    status = { payload: 'Sinais dentro do normal', cor: '#43a047' };\n}\n\nconst hora = new Date(instante).toLocaleTimeString('pt-BR');\nconst info = {\n    payload: '#' + d.id + ' às ' + hora + (d.origem === 'buffer' ? ' (sincronizada do buffer)' : ' (tempo real)')\n};\n\nreturn [\n    { topic: 'BPM', payload: d.bpm, timestamp: instante },\n    { topic: 'Temperatura', payload: d.temp, timestamp: instante },\n    { payload: d.temp },\n    { payload: d.umid },\n    status,\n    info\n];",
+    "outputs": 6,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 160,
+    "wires": [
+      [
+        "chart_bpm"
+      ],
+      [
+        "chart_temp"
+      ],
+      [
+        "gauge_temp"
+      ],
+      [
+        "gauge_umid"
+      ],
+      [
+        "led_alerta"
+      ],
+      [
+        "txt_ultima"
+      ]
+    ]
+  },
+  {
+    "id": "chart_bpm",
+    "type": "ui_chart",
+    "z": "aba_cardioia",
+    "name": "",
+    "group": "grp_monitor",
+    "order": 1,
+    "width": "12",
+    "height": "5",
+    "label": "Frequência cardíaca (bpm)",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "aguardando leituras",
+    "dot": true,
+    "ymin": "0",
+    "ymax": "180",
+    "removeOlder": "30",
+    "removeOlderPoints": "",
+    "removeOlderUnit": "60",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#e53935",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "outputs": 1,
+    "useDifferentColor": false,
+    "className": "",
+    "x": 600,
+    "y": 60,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "chart_temp",
+    "type": "ui_chart",
+    "z": "aba_cardioia",
+    "name": "",
+    "group": "grp_monitor",
+    "order": 2,
+    "width": "12",
+    "height": "4",
+    "label": "Temperatura (°C)",
+    "chartType": "line",
+    "legend": "false",
+    "xformat": "HH:mm:ss",
+    "interpolate": "linear",
+    "nodata": "aguardando leituras",
+    "dot": true,
+    "ymin": "30",
+    "ymax": "42",
+    "removeOlder": "30",
+    "removeOlderPoints": "",
+    "removeOlderUnit": "60",
+    "cutout": 0,
+    "useOneColor": false,
+    "useUTC": false,
+    "colors": [
+      "#fb8c00",
+      "#aec7e8",
+      "#ff7f0e",
+      "#2ca02c",
+      "#98df8a",
+      "#d62728",
+      "#ff9896",
+      "#9467bd",
+      "#c5b0d5"
+    ],
+    "outputs": 1,
+    "useDifferentColor": false,
+    "className": "",
+    "x": 590,
+    "y": 110,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "gauge_temp",
+    "type": "ui_gauge",
+    "z": "aba_cardioia",
+    "name": "",
+    "group": "grp_monitor",
+    "order": 3,
+    "width": "6",
+    "height": "4",
+    "gtype": "gage",
+    "title": "Temperatura corporal",
+    "label": "°C",
+    "format": "{{value | number:1}}",
+    "min": "30",
+    "max": "42",
+    "colors": [
+      "#1e88e5",
+      "#43a047",
+      "#e53935"
+    ],
+    "seg1": "35",
+    "seg2": "38",
+    "diff": false,
+    "className": "",
+    "x": 600,
+    "y": 160,
+    "wires": []
+  },
+  {
+    "id": "gauge_umid",
+    "type": "ui_gauge",
+    "z": "aba_cardioia",
+    "name": "",
+    "group": "grp_monitor",
+    "order": 4,
+    "width": "6",
+    "height": "4",
+    "gtype": "donut",
+    "title": "Umidade da pele / ambiente",
+    "label": "%",
+    "format": "{{value | number:0}}",
+    "min": "0",
+    "max": "100",
+    "colors": [
+      "#90caf9",
+      "#1e88e5",
+      "#0d47a1"
+    ],
+    "seg1": "",
+    "seg2": "",
+    "diff": false,
+    "className": "",
+    "x": 610,
+    "y": 210,
+    "wires": []
+  },
+  {
+    "id": "led_alerta",
+    "type": "ui_template",
+    "z": "aba_cardioia",
+    "group": "grp_alerta",
+    "name": "LED de alerta",
+    "order": 1,
+    "width": "6",
+    "height": "2",
+    "format": "<div style=\"display:flex;align-items:center;gap:14px;padding:6px 0\">\n  <div style=\"width:30px;height:30px;border-radius:50%;flex:none\"\n       ng-style=\"{'background': msg.cor || '#9e9e9e', 'box-shadow': '0 0 12px ' + (msg.cor || '#9e9e9e')}\"></div>\n  <span style=\"font-size:18px;font-weight:500\">{{msg.payload || 'Aguardando dados...'}}</span>\n</div>",
+    "storeOutMessages": true,
+    "fwdInMessages": true,
+    "resendOnRefresh": true,
+    "templateScope": "local",
+    "className": "",
+    "x": 600,
+    "y": 260,
+    "wires": [
+      []
+    ]
+  },
+  {
+    "id": "txt_ultima",
+    "type": "ui_text",
+    "z": "aba_cardioia",
+    "group": "grp_alerta",
+    "order": 3,
+    "width": "6",
+    "height": "1",
+    "name": "",
+    "label": "Última leitura",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "className": "",
+    "x": 600,
+    "y": 310,
+    "wires": []
+  },
+  {
+    "id": "mqtt_status",
+    "type": "mqtt in",
+    "z": "aba_cardioia",
+    "name": "status",
+    "topic": "cardioia/rm567064/paciente01/status",
+    "qos": "1",
+    "datatype": "utf8",
+    "broker": "broker_hivemq",
+    "nl": false,
+    "rap": true,
+    "rh": 0,
+    "inputs": 0,
+    "x": 110,
+    "y": 380,
+    "wires": [
+      [
+        "fmt_status"
+      ]
+    ]
+  },
+  {
+    "id": "fmt_status",
+    "type": "function",
+    "z": "aba_cardioia",
+    "name": "Formatar status",
+    "func": "msg.payload = msg.payload === 'online' ? 'Online' : 'Offline (dados ficam no buffer do dispositivo)';\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 320,
+    "y": 380,
+    "wires": [
+      [
+        "txt_status"
+      ]
+    ]
+  },
+  {
+    "id": "txt_status",
+    "type": "ui_text",
+    "z": "aba_cardioia",
+    "group": "grp_alerta",
+    "order": 2,
+    "width": "6",
+    "height": "1",
+    "name": "",
+    "label": "Dispositivo",
+    "format": "{{msg.payload}}",
+    "layout": "col-center",
+    "className": "",
+    "x": 590,
+    "y": 380,
+    "wires": []
+  }
+]

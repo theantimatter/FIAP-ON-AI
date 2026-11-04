@@ -1,0 +1,53 @@
+CardioIA — Fase 3: Monitoramento Contínuo — IoT no Peito do Paciente
+Diego Filipe Pereira de Araujo — RM567064
+Links de entrega
+
+=== GitHub ===
+
+Repositório (raiz):
+https://github.com/theantimatter/FIAP-ON-AI
+
+Pasta desta fase:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_03
+
+README da entrega (documento resumo):
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/README.md
+
+=== Parte 1 — Edge Computing ===
+
+Projeto no Wokwi:
+https://wokwi.com/projects/479777108727922689
+
+Código C++ comentado:
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/parte1_edge/sketch.ino
+
+Relatório (fluxo de funcionamento e lógica de resiliência):
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/parte1_edge/RELATORIO.md
+
+Prints da simulação:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_03/parte1_edge/prints
+
+=== Parte 2 — MQTT e dashboard ===
+
+Projeto no Wokwi:
+https://wokwi.com/projects/479777077436303361
+
+Código do ESP32:
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/parte2_mqtt/sketch.ino
+
+Export do dashboard no Node-RED:
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/parte2_mqtt/node-red/flows.json
+
+Prints do Wokwi e do dashboard:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_03/parte2_mqtt/prints
+
+Relatório (fluxo MQTT e configuração do dashboard):
+https://github.com/theantimatter/FIAP-ON-AI/blob/main/Fase_03/parte2_mqtt/RELATORIO.md
+
+=== Fases anteriores ===
+
+Fase 1 — Batimentos de Dados:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_01
+
+Fase 2 — Diagnóstico Assistido por IA:
+https://github.com/theantimatter/FIAP-ON-AI/tree/main/Fase_02

@@ -1,0 +1,161 @@
+{
+  "version": 1,
+  "author": "Diego Filipe Pereira de Araujo",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -105.6,
+      "left": 163.2,
+      "attrs": {
+        "temperature": "36.5",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 118.2,
+      "left": 220.8,
+      "attrs": {
+        "color": "red",
+        "label": "Pulso",
+        "key": "p",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw1",
+      "top": 40,
+      "left": 250,
+      "attrs": {
+        "value": "1",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 63.6,
+      "left": -130,
+      "attrs": {
+        "color": "red",
+        "label": "Alerta"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 139.2,
+      "left": -76.8,
+      "attrs": {
+        "value": "220"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "dht1:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht1:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht1:SDA",
+      "esp:D15",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btn1:1.l",
+      "esp:D4",
+      "blue",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "btn1:2.l",
+      "esp:GND.1",
+      "black",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sw1:2",
+      "esp:D18",
+      "orange",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "sw1:1",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "led1:A",
+      "r1:1",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "r1:2",
+      "esp:D13",
+      "red",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "led1:C",
+      "esp:GND.2",
+      "black",
+      [
+        "v86.4",
+        "h120"
+      ]
+    ]
+  ],
+  "dependencies": {}
+}
